@@ -4,11 +4,13 @@ import "./globals.css";
 import dynamic from "next/dynamic";
 
 const titleFont = Bebas_Neue({
+  subsets: ["latin"],
   weight: "400",
   variable: "--title-font",
 })
 
 const paraFont = Inter({
+  subsets: ["latin"],
   variable: "--para-font"
 })
 
