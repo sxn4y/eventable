@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+/* fonts */
+
+  /* Inter */
+  .inter-thin {
+    font-family: var(--para-font), sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+  }
+
+  .inter-extralight {
+    font-family: var(--para-font), sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+  }
+
+  .inter-light {
+    font-family: var(--para-font), sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+  }
+
+  .inter, .inter-regular {
+    font-family: var(--para-font), sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .inter-medium {
+    font-family: var(--para-font), sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  .inter-semibold {
+    font-family: var(--para-font), sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+  }
+
+  .inter-bold {
+    font-family: var(--para-font), sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  .inter-extrabold {
+    font-family: var(--para-font), sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+  }
+
+  .inter-black {
+    font-family: var(--para-font), sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+  }
+
+
+  /* Bebas Neue */
+  .bebas, .bebas-regular {
+    font-family: var(--title-font), serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  /* design presets */
+  .title {
+    font-family: var(--title-font), serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2rem;
+  }
+
+  .para {
+    font-family: var(--para-font), sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 0.75rem;
+  }
+
+/* tlct means translucent */
+
+:root {
+  --background: #F5F5EF;
+  --background-tlct: #F5F5EF66;
+  --foreground: #32321E;
+  --foreground-tlct: #32321E66;
+  --accent: #7B00FF;
+  --accent-tlct: #7B00FF66;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #150B20;
+    --background-tlct: #150B2066;
+    --foreground: #FFFFCC;
+    --foreground-tlct: #FFFFCC66;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
