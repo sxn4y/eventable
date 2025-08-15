@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Inter, Bebas_Neue } from "next/font/google";
-import "./globals.css";
 import dynamic from "next/dynamic";
 
 const titleFont = Bebas_Neue({

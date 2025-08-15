@@ -15,7 +15,15 @@ interface NavItemProps {
   children?: ReactNode;
   className?: string;
   href?: string;
-  active?: boolean;
+  disabled?: boolean;
+  variant?:
+    | "primary"
+    | "secondary"
+    | "outline"
+    | "positive"
+    | "danger"
+    | "link"
+    | "fancy";
 }
 
 const NavBar: React.FC<NavBarProps> = ({
@@ -38,14 +46,14 @@ const NavBar: React.FC<NavBarProps> = ({
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  let inBuiltClass = "bg-(--foreground) text-(--background)";
+  let inBuiltClass = "bg-(--foreground) text-(--background)"; // Default primary variant
 
   switch (variant) {
     case "secondary":
       inBuiltClass = "bg-(--foreground)/10 text-(--foreground)";
       break;
     case "outline":
-      inBuiltClass = "bg-(--foreground)/10 text-(--foreground) border-b border-(--foreground)/20";
+      inBuiltClass = "bg-(--background)/90 text-(--foreground) border-b border-(--foreground)/20";
       break;
     case "fancy":
       inBuiltClass = "bg-linear-to-b from-(--foreground)/10 to-(--foreground)/6 text-(--foreground) border-b border-(--foreground)/20";
@@ -54,7 +62,7 @@ const NavBar: React.FC<NavBarProps> = ({
 
   return (
     <nav className={`w-full ${inBuiltClass} ${className}`}>
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="mx-2 sm:mx-6 lg:mx-16 2xl:mx-32 px-4">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
             {brand}
@@ -109,13 +117,14 @@ const NavBar: React.FC<NavBarProps> = ({
 
 const NavItem: React.FC<NavItemProps> = ({
   children,
-  className = "",
+  className,
   href = "#",
-  active = false,
+  disabled = false,
+  variant = "link",
 }) => {
   return (
     <a href={href}>
-      <Button variant="link">{children}</Button>
+      <Button variant={variant} disabled={disabled} className={className}>{children}</Button>
     </a>
   );
 };

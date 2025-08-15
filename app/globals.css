@@ -110,6 +110,11 @@
   --font-mono: var(--font-geist-mono);
 }
 
+.backdrop-blur-md {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #150B20;
