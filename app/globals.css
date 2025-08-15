@@ -2,105 +2,115 @@
 
 /* fonts */
 
-  /* Inter */
-  .inter-thin {
-    font-family: var(--para-font), sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 100;
-    font-style: normal;
-  }
+/* Inter */
+.inter-thin {
+  font-family: var(--para-font), sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+}
 
-  .inter-extralight {
-    font-family: var(--para-font), sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 200;
-    font-style: normal;
-  }
+.inter-extralight {
+  font-family: var(--para-font), sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+}
 
-  .inter-light {
-    font-family: var(--para-font), sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 300;
-    font-style: normal;
-  }
+.inter-light {
+  font-family: var(--para-font), sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
 
-  .inter, .inter-regular {
-    font-family: var(--para-font), sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-  }
+.inter,
+.inter-regular {
+  font-family: var(--para-font), sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
 
-  .inter-medium {
-    font-family: var(--para-font), sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 500;
-    font-style: normal;
-  }
+.inter-medium {
+  font-family: var(--para-font), sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
 
-  .inter-semibold {
-    font-family: var(--para-font), sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 600;
-    font-style: normal;
-  }
+.inter-semibold {
+  font-family: var(--para-font), sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
 
-  .inter-bold {
-    font-family: var(--para-font), sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 700;
-    font-style: normal;
-  }
+.inter-bold {
+  font-family: var(--para-font), sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
 
-  .inter-extrabold {
-    font-family: var(--para-font), sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 800;
-    font-style: normal;
-  }
+.inter-extrabold {
+  font-family: var(--para-font), sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+}
 
-  .inter-black {
-    font-family: var(--para-font), sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 900;
-    font-style: normal;
-  }
+.inter-black {
+  font-family: var(--para-font), sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+}
 
+/* Bebas Neue */
+.bebas,
+.bebas-regular {
+  font-family: var(--title-font), serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
 
-  /* Bebas Neue */
-  .bebas, .bebas-regular {
-    font-family: var(--title-font), serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-  }
+/* design presets */
+.title {
+  font-family: var(--title-font), serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2rem;
+}
 
-  /* design presets */
-  .title {
-    font-family: var(--title-font), serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 2rem;
-  }
-
-  .para {
-    font-family: var(--para-font), sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 0.75rem;
-  }
+.para {
+  font-family: var(--para-font), sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 0.75rem;
+}
 
 /* tlct means translucent */
 
 :root {
-  --background: #F5F5EF;
-  --background-tlct: #F5F5EF66;
-  --foreground: #32321E;
-  --foreground-tlct: #32321E66;
-  --accent: #7B00FF;
-  --accent-tlct: #7B00FF66;
+  --background: #f5f5ef;
+  --background-tlct: #f5f5ef66;
+  --foreground: #32321e;
+  --foreground-tlct: #32321e66;
+  --accent: #7b00ff;
+  --accent-tlct: #7b00ff66;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #150b20;
+    --background-tlct: #150b2066;
+    --foreground: #ffffcc;
+    --foreground-tlct: #ffffcc66;
+  }
 }
 
 @theme inline {
@@ -110,18 +120,19 @@
   --font-mono: var(--font-geist-mono);
 }
 
-.backdrop-blur-md {
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+.navbar {
+  backdrop-filter: blur(8px) saturate(3);
+  -webkit-backdrop-filter: blur(8px) saturate(3);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #150B20;
-    --background-tlct: #150B2066;
-    --foreground: #FFFFCC;
-    --foreground-tlct: #FFFFCC66;
-  }
+.no-drag-select {
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  pointer-events: none;
 }
 
 body {

@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   title: "EVENTABLE",
   description: "Event planning made ez.",
   icons: {
-    icon: `./assets/favicon.png`,
+    icon: `@/assets/favicon.png`,
   },
 };
 

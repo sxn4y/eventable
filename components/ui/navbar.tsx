@@ -8,7 +8,7 @@ interface NavBarProps {
   children?: ReactNode;
   className?: string;
   brand?: ReactNode;
-  variant?: "primary" | "secondary" | "outline" | "fancy";
+  variant?: "primary" | "secondary" | "outline" | "fancy" | "custom";
 }
 
 interface NavItemProps {
@@ -53,10 +53,16 @@ const NavBar: React.FC<NavBarProps> = ({
       inBuiltClass = "bg-(--foreground)/10 text-(--foreground)";
       break;
     case "outline":
-      inBuiltClass = "bg-(--background)/90 text-(--foreground) border-b border-(--foreground)/20";
+      inBuiltClass =
+        "bg-(--background)/90 text-(--foreground) border-b border-(--foreground)/20";
       break;
     case "fancy":
-      inBuiltClass = "bg-linear-to-b from-(--foreground)/10 to-(--foreground)/6 text-(--foreground) border-b border-(--foreground)/20";
+      inBuiltClass =
+        "bg-linear-to-b from-(--foreground)/10 to-(--foreground)/6 text-(--foreground) border-b border-(--foreground)/20";
+      break;
+    case "custom":
+      inBuiltClass =
+        "bg-linear-to-b from-(--background) to-(--background)/80 text-(--foreground) border-b border-(--foreground)/20";
       break;
   }
 
