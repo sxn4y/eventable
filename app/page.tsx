@@ -11,14 +11,21 @@ import Image from "next/image";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import ScrollSmoother from "gsap/ScrollSmoother";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { NavBar, NavItem } from "@/components/ui/navbar";
 import "./globals.css";
+import Button from "@/components/ui/button";
+import Tag from "@/components/ui/tag";
+import SReveal from "@/components/ui/sReveal";
+import { ChevronRight } from "lucide-react";
+import Card from "@/components/ui/card";
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [screenWidth, setScreenWidth] = useState(0);
+
   useEffect(() => {
     const smoother = ScrollSmoother.create({
       wrapper: "#scroll-wrapper",
@@ -26,7 +33,20 @@ export default function Home() {
       smooth: 0.8,
       effects: true,
     });
-  }, [containerRef.current]);
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  });
+
+  useEffect(() => {
+  }, []);
 
   return (
     <div>
@@ -63,19 +83,63 @@ export default function Home() {
             </span>
           </>
         }
-        className="navbar select-none fixed top-0 left-0 w-full z-50 shadow-xl dark:shadow-xl/30"
+        className="navbar select-none fixed top-0 left-0 w-full z-50 shadow-xl dark:shadow-xl/30 *:font-bold"
         variant="custom"
       >
         <NavItem href="">Link</NavItem>
-        <NavItem href="">Link</NavItem>
+        <NavItem variant="primary">Link</NavItem>
         <NavItem href="">Link</NavItem>
         <NavItem href="">Link</NavItem>
       </NavBar>
       <div id="scroll-wrapper">
         <div id="smooth-content">
-          <section className="h-screen mx-2 sm:mx-6 lg:mx-16 2xl:mx-32 p-4">
-            Hello
+          <section className="h-screen flex flex-col items-center justify-center mx-2 sm:mx-8 lg:mx-32 2xl:mx-64 p-4 select-none">
+            <Tag className="mb-12">Dubai's #1 Event Planning App</Tag>
+            <div className="title text-center">PLAN EVENTS</div>
+            <div className="subtitle mt-[-1rem]">with ease.</div>
+            <div className="flex mt-16 gap-4 *:px-4 *:py-2 *:rounded-(--s3) *:text-xl">
+              <Button parallax variant="fancy">
+                Get Started
+              </Button>
+              <Button variant="link" className="flex items-center">
+                Learn More <ChevronRight className="mr-[-0.5rem]" />
+              </Button>
+            </div>
           </section>
+          <SReveal
+            opacity={0}
+            duration={1.5}
+            distance={400}
+            once
+            className="tilted-bg before:bg-(--foreground)/6 min-h-[48rem] relative flex flex-col items-center justify-center py-6 sm:px-8 lg:px-32 2xl:px-64"
+          >
+            <Tag className="reveal mb-12">Features</Tag>
+            <div className="reveal bebas text-[6rem] text-center">
+              EVERYTHING YOU NEED FOR EVENT PLANNING.
+            </div>
+            <div className="reveal text-4xl mt-[-1rem] text-center">
+              <strong>Powerful</strong> tools to make your celebrations
+              extraordinary.
+            </div>
+            <div className="grid grid-flow-col grid-rows-2 mt-16 gap-2 *:px-4 *:py-2 *:rounded-(--s3) *:text-xl">
+              <Card className="reveal min-h-[16rem] w-[16vw]" variant="fancy" parallax>Hello</Card>
+            </div>
+          </SReveal>
+          <section className="h-screen flex flex-col items-center justify-center mx-2 sm:mx-8 lg:mx-32 2xl:mx-64 p-4 select-none">
+            <Tag className="mb-12">Dubai's #1 Event Planning App</Tag>
+            <div className="title text-center">PLAN EVENTS</div>
+            <div className="subtitle mt-[-1rem]">with ease.</div>
+            <div className="flex mt-16 gap-4 *:px-4 *:py-2 *:rounded-(--s3) *:text-xl">
+              <Button parallax variant="fancy">
+                Get Started
+              </Button>
+              <Button variant="link" className="flex items-center">
+                Learn More <ChevronRight className="mr-[-0.5rem]" />
+              </Button>
+            </div>
+          </section>
+          {/* <section className="h-screen flex items-center justify-center mx-2 sm:mx-8 lg:mx-32 2xl:mx-64 p-4"></section> */}
+          {/* uncomment above for new sections */}
         </div>
       </div>
     </div>

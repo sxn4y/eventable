@@ -34,6 +34,7 @@ export interface ButtonProps {
     | "positive"
     | "danger"
     | "link"
+    | "navlink"
     | "fancy";
 }
 
@@ -41,7 +42,7 @@ const Button: React.FC<ButtonProps> = ({
   children,
   className = "w-fit h-[100px]",
   parallax = false,
-  tiltFactor = 20,
+  tiltFactor = 12,
 
   autoFocus = false,
   disabled = false,
@@ -74,32 +75,36 @@ const Button: React.FC<ButtonProps> = ({
   }
 
   let inBuiltClass =
-    "px-3 py-1.5 rounded-(--s2)  text-(--background) bg-(--foreground) outline-(--foreground)/50 outline-0 delay-25 transition-[outline] transition-[background] hover:bg-(--foreground)/90 focus:outline-3";
+    "px-3 py-1.5 rounded-(--s2)  text-(--background) dark:text-(--foreground) bg-(--accent) outline-(--accent)/50 outline-0 duration-200 transition-[outline] transition-[background] hover:bg-(--accent)/90 focus:outline-3";
 
   switch (variant) {
     case "secondary":
       inBuiltClass =
-        "px-3 py-1.5 rounded-(--s2) text-(--foreground) bg-(--foreground)/10 outline-(--foreground)/5 outline-0 delay-25 transition-[outline] transition-[background] hover:bg-(--foreground)/9 focus:outline-3";
+        "px-3 py-1.5 rounded-(--s2) text-(--foreground) bg-(--foreground)/10 outline-(--foreground)/5 outline-0 duration-200 transition-[outline] transition-[background] hover:bg-(--foreground)/9 focus:outline-3";
       break;
     case "outline":
       inBuiltClass =
-        "px-3 py-1.5 rounded-(--s2) text-(--foreground) border border-(--foreground)/20 bg-(--foreground)/10 outline-(--foreground)/7 outline-0 delay-25 transition-[outline] transition-[background] hover:bg-(--foreground)/9 focus:outline-3";
+        "px-3 py-1.5 rounded-(--s2) text-(--foreground) border border-(--foreground)/20 bg-(--foreground)/10 outline-(--foreground)/7 outline-0 duration-200 transition-[outline] transition-[background] hover:bg-(--foreground)/9 focus:outline-3";
       break;
     case "positive":
       inBuiltClass =
-        "px-3 py-1.5 rounded-(--s2) text-(--foreground) bg-blue-500 dark:bg-blue-800 outline-blue-500/50 dark:outline-blue-800/50 outline-0 delay-25 transition-[outline] transition-[background] hover:bg-blue-500/90 dark:hover:bg-blue-800/90 focus:outline-3";
+        "px-3 py-1.5 rounded-(--s2) text-(--foreground) bg-blue-500 dark:bg-blue-800 outline-blue-500/50 dark:outline-blue-800/50 outline-0 duration-200 transition-[outline] transition-[background] hover:bg-blue-500/90 dark:hover:bg-blue-800/90 focus:outline-3";
       break;
     case "danger":
       inBuiltClass =
-        "px-3 py-1.5 rounded-(--s2) text-(--foreground) bg-red-500 dark:bg-red-800 outline-red-500/50 dark:outline-red-800/50 outline-0 delay-25 transition-[outline] transition-[background] hover:bg-red-500/90 dark:hover:bg-red-800/90 focus:outline-3";
+        "px-3 py-1.5 rounded-(--s2) text-(--foreground) bg-red-500 dark:bg-red-800 outline-red-500/50 dark:outline-red-800/50 outline-0 duration-200 transition-[outline] transition-[background] hover:bg-red-500/90 dark:hover:bg-red-800/90 focus:outline-3";
       break;
     case "link":
       inBuiltClass =
-        "px-3 py-1.5 rounded-(--s2) text-(--foreground) outline-0 delay-25 transition-[background] transition-[text-decoration] underline-offset-4 hover:underline hover:shadow-lg/20";
+        "px-3 py-1.5 rounded-(--s2) text-(--foreground) outline-0 duration-200 transition-[background] transition-[text-decoration] underline-offset-4 hover:underline hover:shadow-lg/20";
+      break;
+    case "navlink":
+      inBuiltClass =
+        "px-3 py-1.5 rounded-(--s2) text-(--foreground) bg-(--foreground)/5 hover:bg-(--foreground)/4 outline-0 duration-200 transition-[background] transition-[text-decoration] underline-offset-4 hover:underline hover:shadow-lg/20";
       break;
     case "fancy":
       inBuiltClass =
-        "px-3 py-1.5 rounded-(--s2) text-(--foreground) border border-(--foreground)/20 bg-linear-to-b from-(--foreground)/10 to-(--foreground)/6 outline-(--foreground)/7 outline-0 delay-25 transition-[outline] transition-[background] hover:bg-(--foreground)/2 focus:outline-3";
+        "px-3 py-3 md:py-1.5 rounded-(--s2) text-(--background) dark:text-(--foreground) border border-(--foreground)/20 bg-linear-to-b from-(--accent)/60 to-(--accent) outline-(--accent)/40 outline-0 duration-200 transition-[outline] transition-[background] hover:bg-(--foreground)/6 focus:outline-3";
       break;
   }
 
@@ -120,8 +125,8 @@ const Button: React.FC<ButtonProps> = ({
         const tiltX = (y - centerY) / (button.clientHeight / tiltFactor);
         const tiltY = (centerX - x) / (button.clientWidth / tiltFactor);
 
-        button.style.setProperty("--x", `${x}%`);
-        button.style.setProperty("--y", `${y}%`);
+        button.style.setProperty("--x", `${x / button.clientWidth * 100}%`);
+        button.style.setProperty("--y", `${y / button.clientHeight * 100}%`);
         button.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
       };
 
@@ -160,7 +165,7 @@ const Button: React.FC<ButtonProps> = ({
       onFocus={onFocus}
       className={`${
         parallax ? "glow-effect" : "no-glow-effect"
-      } ${inBuiltClass} h-fit font-medium text-(length:--s3) overflow-hidden ${className}`}
+      } ${inBuiltClass} h-fit font-medium overflow-hidden ${className}`}
       ref={buttonRef}
     >
       {children}

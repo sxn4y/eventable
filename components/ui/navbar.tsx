@@ -68,7 +68,7 @@ const NavBar: React.FC<NavBarProps> = ({
 
   return (
     <nav className={`w-full ${inBuiltClass} ${className}`}>
-      <div className="mx-2 sm:mx-6 lg:mx-16 2xl:mx-32 px-4">
+      <div className="mx-2 sm:mx-8 lg:mx-32 2xl:mx-64 px-4">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
             {brand}
@@ -112,7 +112,7 @@ const NavBar: React.FC<NavBarProps> = ({
 
         {/* Mobile Menu */}
         <div className={`${isOpen ? 'block' : 'hidden'} md:hidden pb-4`}>
-          <div className="flex flex-col space-y-2">
+          <div className="flex flex-col space-y-2 *:w-full">
             {children}
           </div>
         </div>
@@ -126,11 +126,11 @@ const NavItem: React.FC<NavItemProps> = ({
   className,
   href = "#",
   disabled = false,
-  variant = "link",
+  variant = "navlink",
 }) => {
   return (
     <a href={href}>
-      <Button variant={variant} disabled={disabled} className={className}>{children}</Button>
+      <Button variant={variant} disabled={disabled} className={`w-full text-right ${className}`}>{children}</Button>
     </a>
   );
 };
