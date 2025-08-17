@@ -95,7 +95,7 @@ export default function Home() {
         <div id="smooth-content">
           <section className="h-screen flex flex-col items-center justify-center mx-2 sm:mx-8 lg:mx-32 2xl:mx-64 p-4 select-none">
             <Tag className="mb-12">Dubai's #1 Event Planning App</Tag>
-            <div className="title text-center">PLAN EVENTS</div>
+            <div className="bebas text-[8rem] md:text-[12rem] leading-[8rem] md:leading-[10rem] text-center">PLAN EVENTS</div>
             <div className="subtitle mt-[-1rem]">with ease.</div>
             <div className="flex mt-16 gap-4 *:px-4 *:py-2 *:rounded-(--s3) *:text-xl">
               <Button parallax variant="fancy">
@@ -111,13 +111,13 @@ export default function Home() {
             duration={1.5}
             distance={400}
             once
-            className="tilted-bg before:bg-(--foreground)/6 min-h-[48rem] relative flex flex-col items-center justify-center py-6 sm:px-8 lg:px-32 2xl:px-64"
+            className="tilted-bg before:bg-(--foreground)/6 min-h-[48rem] relative flex flex-col items-center justify-center py-6 px-4 sm:px-8 lg:px-32 2xl:px-64"
           >
             <Tag className="reveal mb-12">Features</Tag>
-            <div className="reveal bebas text-[6rem] text-center">
+            <div className="reveal bebas text-[4rem] md:text-[6rem] leading-[6rem] md:leading-[8rem] text-center">
               EVERYTHING YOU NEED FOR EVENT PLANNING.
             </div>
-            <div className="reveal text-4xl mt-[-1rem] text-center">
+            <div className="reveal text-2xl md:text-4xl text-center">
               <strong>Powerful</strong> tools to make your celebrations
               extraordinary.
             </div>

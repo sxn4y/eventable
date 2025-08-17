@@ -126,7 +126,7 @@ const NavItem: React.FC<NavItemProps> = ({
   className,
   href = "#",
   disabled = false,
-  variant = "navlink",
+  variant = "link",
 }) => {
   return (
     <a href={href}>
