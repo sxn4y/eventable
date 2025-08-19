@@ -6,7 +6,8 @@ import { applyParallax } from "./epsilon";
 
 export interface ButtonProps {
   children?: ReactNode;
-  className?: string;
+  className?: string
+  id?: string;
   parallax?: boolean;
   tiltFactor?: number;
 
@@ -41,6 +42,7 @@ export interface ButtonProps {
 const Button: React.FC<ButtonProps> = ({
   children,
   className = "w-fit h-[100px]",
+  id,
   parallax = false,
   tiltFactor = 20,
 
@@ -129,6 +131,7 @@ const Button: React.FC<ButtonProps> = ({
         parallax ? "glow-effect" : "no-glow-effect"
       } ${inBuiltClass} h-fit font-medium text-(length:--s3) overflow-hidden ${className}`}
       ref={buttonRef}
+      id={id}
     >
       {children}
       <div className="glow-container" />

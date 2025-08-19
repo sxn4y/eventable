@@ -34,8 +34,8 @@
   height: 120%;
   background: radial-gradient(
     circle at var(--x) var(--y),
-    rgba(255, 255, 255, 0.2),
-    transparent 40%
+    rgba(255, 255, 255, 0.1),
+    transparent 70%
   );
   opacity: 0;
   transition: opacity 0.2s;

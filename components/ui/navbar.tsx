@@ -14,8 +14,10 @@ interface NavBarProps {
 interface NavItemProps {
   children?: ReactNode;
   className?: string;
+  id?: string;
   href?: string;
   disabled?: boolean;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   variant?:
     | "primary"
     | "secondary"
@@ -62,7 +64,7 @@ const NavBar: React.FC<NavBarProps> = ({
       break;
     case "custom":
       inBuiltClass =
-        "bg-linear-to-b from-(--background) to-(--background)/80 text-(--foreground) border-b border-(--foreground)/20";
+        "bg-linear-to-b from-(--background) to-(--background)/70 text-(--foreground) border-b border-(--foreground)/20";
       break;
   }
 
@@ -124,13 +126,15 @@ const NavBar: React.FC<NavBarProps> = ({
 const NavItem: React.FC<NavItemProps> = ({
   children,
   className,
+  id,
   href = "#",
   disabled = false,
+  onClick,
   variant = "link",
 }) => {
   return (
     <a href={href}>
-      <Button variant={variant} disabled={disabled} className={`w-full text-right ${className}`}>{children}</Button>
+      <Button variant={variant} disabled={disabled} id={id} className={`w-full text-right ${className}`}>{children}</Button>
     </a>
   );
 };

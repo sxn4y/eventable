@@ -12,6 +12,7 @@ interface sRevealProps {
   delay?: number;
   once?: boolean;
   className?: string;
+  id?: string;
   opacity?: number;
   scale?: number;
   angle?: number;
@@ -30,6 +31,7 @@ const SReveal: React.FC<sRevealProps> = ({
   delay = 0,
   once = false,
   className = "",
+  id,
   opacity = 0,
   scale = 1,
   angle = 0,
@@ -96,7 +98,7 @@ const SReveal: React.FC<sRevealProps> = ({
   });
 
   return (
-    <div ref={ref} className={`${className} ${inline ? "inline" : "block"}`}>
+    <div ref={ref} id={id} className={`${className} ${inline ? "inline" : "block"}`}>
       {children}
     </div>
   );
