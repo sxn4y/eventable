@@ -6,4 +6,4 @@ interface FeatureCardProps {
   icon: React.ReactNode;
 }
 
-export const FeatureCard: React.FC<FeatureCard>
+// export const FeatureCard: React.FC<FeatureCard>
