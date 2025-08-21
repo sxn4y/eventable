@@ -49,7 +49,7 @@ const SReveal: React.FC<sRevealProps> = ({
   const percent = (1 - threshold) * 100;
 
   useEffect(() => {
-    const el = ref.current.querySelectorAll(".reveal");
+    const el = ref.current;
     if (!el) return;
     let tl = once
       ? gsap.timeline({
@@ -79,22 +79,26 @@ const SReveal: React.FC<sRevealProps> = ({
           },
         });
 
-    tl.fromTo(el, {
-      transformOrigin: "center",
-      [axis]: offset,
-      scale,
-      opacity,
-      rotate: rotation,
-    },{
-      [axis]: 0,
-      scale: 1,
-      opacity: 1,
-      rotate: 0,
-      duration,
-      ease,
-      delay,
-      stagger: 0.1,
-    });
+    tl.fromTo(
+      el.querySelectorAll(".reveal"),
+      {
+        transformOrigin: "center",
+        [axis]: offset,
+        scale,
+        opacity,
+        rotate: rotation,
+      },
+      {
+        [axis]: 0,
+        scale: 1,
+        opacity: 1,
+        rotate: 0,
+        duration,
+        ease,
+        delay,
+        stagger: 0.1,
+      }
+    );
   });
 
   return (
